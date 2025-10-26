@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sorry my love</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Maafin aku yaa sayangku Cia :(</h1>
+        <img src="stickerWA.png">
+        <button id="forgive-btn">Iya, aku maafin</button>
+        <button id="runaway-btn">Ga >:(</button>
+    </div>
+
+    <div id="thank-you-overlay">
+        <img src="stickerWA2.jpg" id="meng">
+        <div id="thank-you-text">HEHE MAKASI SAYANG LOVEYOUUU :3</div>
+    </div>
+
+    <script>
+        const runawayBtn = document.getElementById('runaway-btn');
+        // Function to move the button to a random position
+        function moveButton() {
+            // Get viewport dimensions
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            // Generate random positions (ensure button stays within bounds)
+            const randomX = Math.random() * (viewportWidth - 100); // Subtract button width approx.
+            const randomY = Math.random() * (viewportHeight - 50); // Subtract button height approx.
+            // Apply new position with smooth transition
+            runawayBtn.style.position = 'absolute';
+            runawayBtn.style.left = randomX + 'px';
+            runawayBtn.style.top = randomY + 'px';
+        }
+        // Add click event listener to the button
+        runawayBtn.addEventListener('click', moveButton);
+
+        const forgiveBtn = document.getElementById('forgive-btn');
+        const overlay = document.getElementById('thank-you-overlay');
+        // Function to show the overlay
+        function showOverlay() {
+            overlay.style.display = 'flex'; // Show the overlay
+        }
+        // Function to hide the overlay (optional, for closing)
+        function hideOverlay() {
+            overlay.style.display = 'none';
+        }
+        // Add click event to the forgive button
+        forgiveBtn.addEventListener('click', showOverlay);
+        // Optional: Hide overlay when clicking on it
+        overlay.addEventListener('click', hideOverlay);
+    </script>
+</body>
+</html>
